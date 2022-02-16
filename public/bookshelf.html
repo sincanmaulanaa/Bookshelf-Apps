@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rak Buku App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="relative font-sans">
+    <header class="fixed top-0 left-0 right-0 flex justify-between px-4 py-5 bg-white border-b-2 border-black head_bar">
+        <a href="index.html">
+            <h1 class="text-lg font-medium head_bar__title">Rak Buku App</h1>
+        </a>
+        <span class="text-xl">📚</span>
+    </header>
+    <main class="justify-center block p-4 mt-20 lg:p-12 lg:space-x-12 lg:flex">
+        <section
+            class="box-border h-auto p-6 border border-black rounded-lg shadow-lg lg:h-full shadow-pink-300/60 input_section">
+            <h2 class="text-xl font-medium text-center underline shadow-md shadow-pink-200/60 decoration-pink-500">
+                Masukkan Buku
+                Baru</h2>
+            <form id="inputBook" class="mt-8">
+                <div class="mb-5 input">
+                    <label for="inputBookTitle" class="text-sm">Judul</label>
+                    <input id="inputBookTitle" class="block w-full px-2 py-1 mt-1 border border-black rounded-sm"
+                        type="text" required>
+                </div>
+                <div class="mb-5 input">
+                    <label for="inputBookAuthor" class="text-sm">Penulis</label>
+                    <input id="inputBookAuthor" class="block w-full px-2 py-1 mt-1 border border-black rounded-sm"
+                        type="text" required>
+                </div>
+                <div class="mb-5 input">
+                    <label for="inputBookYear" class="text-sm">Tahun</label>
+                    <input id="inputBookYear" class="block w-1/2 px-2 py-1 mt-1 border border-black rounded-sm"
+                        type="number" required>
+                </div>
+                <div class="flex items-center mb-5 space-x-3 input_inline">
+                    <label for="inputBookIsComplete" class="text-sm">Selesai dibaca</label>
+                    <input id="inputBookIsComplete"
+                        class="w-4 h-4 border border-black rounded-sm appearance-none checked:bg-black" type="checkbox"
+                        onclick="if(this.checked){isChecked()} else {isUnchecked()}">
+                </div>
+                <div class="flex justify-center">
+                    <button id="bookSubmit" type="submit"
+                        class="px-6 py-2 mt-3 text-sm text-white transition duration-300 ease-in-out bg-black rounded-sm hover:shadow-xl hover:-translate-y-1 hover:scale-40">Masukkan
+                        Buku ke
+                        rak
+                        <span id="readStatus" class="underline">Belum selesai
+                            dibaca</span></button>
+                </div>
+            </form>
+        </section>
+
+        <div class="flex flex-col space-y-10">
+            <section
+                class="mt-10 lg:mt-0 box-border p-6 border border-black rounded-lg shadow-lg lg:w-[32rem] search_section shadow-cyan-300/40">
+                <h2 class="text-xl font-medium text-center underline shadow-md shadow-cyan-200/60 decoration-cyan-500">
+                    Cari Buku</h2>
+                <form id="searchBook" class="flex items-center mt-6 space-x-3">
+                    <input id="searchBookTitle" type="text"
+                        class="w-full px-2 py-1 border border-black rounded-sm placeholder:text-xs placeholder:italic placeholder:text-slate-400"
+                        placeholder="Cari buku berdasarkan judul...">
+                    <button id="searchSubmit" type="submit"
+                        class="px-6 py-2 text-sm text-white transition duration-300 ease-in-out bg-black rounded-sm hover:shadow-xl hover:-translate-y-1 hover:scale-40">Cari</button>
+                </form>
+                <div id="searchResult"></div>
+            </section>
+
+            <section
+                class="box-border w-full p-6 border border-black rounded-lg shadow-lg book_shelf shadow-indigo-300/40">
+                <h2
+                    class="text-xl font-medium text-center underline shadow-md shadow-indigo-200/60 decoration-indigo-500">
+                    Belum selesai dibaca</h2>
+
+                <div id="incompleteBookshelfList" class="flex flex-col mt-6 space-y-6 book_list">
+                </div>
+            </section>
+
+            <section
+                class="box-border w-full p-6 border border-black rounded-lg shadow-lg book_shelf shadow-indigo-300/40">
+                <h2
+                    class="text-xl font-medium text-center underline shadow-md shadow-indigo-200/60 decoration-indigo-500">
+                    Selesai dibaca</h2>
+
+                <div id="completeBookshelfList" class="flex flex-col mt-6 space-y-6 book_list">
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="py-6">
+        <p class="text-xs text-center lg:text-md">Dibuat dengan ❤️ oleh <a href="https://instagram.com/sincan.mln/"
+                target="_blank"><span class="font-medium underline hover:shadow-md">Sincan
+                    Maulana.</span></a>
+        </p>
+    </footer>
+</body>
+
+<script src="js/main.js"></script>
+
+</html>
